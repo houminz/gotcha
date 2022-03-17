@@ -8,10 +8,10 @@ RUN printf "deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial-12 main" | tee
 RUN wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | apt-key add -
 RUN apt -y update
 RUN apt install -y llvm clang git
-WORKDIR /demo
+WORKDIR /ebpf
 COPY . .
 RUN make
-RUN chmod a+x /demo
-ENTRYPOINT ["./demo"]
-CMD ["./demo"]
+RUN chmod a+x /ebpf
+ENTRYPOINT ["./ebpf"]
+CMD ["./ebpf"]
 
